@@ -52,5 +52,6 @@ int Calorie_Counting::GetTopThreeTotal()
     {
         return values[0] + values[1] + values[2];
     }
+    return 0;
 }
 
