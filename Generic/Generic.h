@@ -59,5 +59,10 @@ public:
 		}
 		return result;
 	}
+	
+	inline static int StringToInt(const std::string& str)
+	{
+		return std::strtol(str.c_str(), nullptr, 0);
+	}
 };
 

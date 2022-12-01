@@ -1,7 +1,5 @@
 #include "pch.h"
 #include "../Generic/Generic.h"
-//#include <string>
-//#include <vector>
 #include "../Core/Calories.h"
 
 TEST(Day1, calories)
@@ -25,4 +23,7 @@ TEST(Day1, calories)
 
 	Calorie_Counting counting;
 	counting.parseInput(s1);
+	ASSERT_EQ(counting.GetMostCalories(), 24000);
+	ASSERT_EQ(counting.GetTopThreeTotal(), 45000);
+
 }

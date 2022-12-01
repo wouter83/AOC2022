@@ -22,4 +22,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="input\day1.h">
+      <Filter>inputs</Filter>
+    </ClInclude>
+  </ItemGroup>
 </Project>

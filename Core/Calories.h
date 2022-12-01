@@ -3,21 +3,22 @@
 #include <string>
 
 
-class Calories
+class Elf
 {
 public:
 	int getTotalCalories();
 
-private:
-	std::vector<int> carried;
+	std::vector<int> mCaloriesCarried;
 };
 
 class Calorie_Counting
 {
 public:
 	bool parseInput(const std::string& str);
-	bool parse(int i);
+	int GetMostCalories();
+	int GetTopThreeTotal();
+	
 private:
-	std::vector<Calories> cal;
+	std::vector<Elf> cal;
 
 };

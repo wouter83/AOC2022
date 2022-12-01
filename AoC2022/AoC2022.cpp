@@ -12,9 +12,9 @@ int main()
     {
         std::cout << "--- Day 01 ---" << std::endl;
         Calorie_Counting cal;
-        cal.parse(1);
-    //    std::cout << "Answer 1: " << dm.increaseCount() << std::endl;
-    //    std::cout << "Answer 2: " << dm.threeSlideCount() << std::endl;
+        cal.parseInput(day1Input);
+        std::cout << "Answer 1: " << cal.GetMostCalories() << std::endl;
+        std::cout << "Answer 1: " << cal.GetTopThreeTotal() << std::endl;
     }
 
     
