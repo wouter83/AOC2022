@@ -9,14 +9,16 @@ class RockPaperScissors
 		Rock = 1,
 		Paper,
 		Scissors
-
 	};
 public:
-	bool parseInput(const std::string& str);
-	int GetTotalScore();
+	void parseInput(const std::string& str);
+	int GetTotalScorePart1();
+	int GetTotalScorePart2();
 
 private:
-	std::vector<std::pair<RPC, RPC>> part1;
+	int calculateScore(std::pair<RPC, RPC>& pair);
 
+	std::vector<std::pair<RPC, RPC>> part1;
+	std::vector<std::pair<RPC, RPC>> part2;
 };
 

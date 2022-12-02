@@ -15,15 +15,15 @@ int main()
         Calorie_Counting cal;
         cal.parseInput(day1Input);
         std::cout << "Answer 1: " << cal.GetMostCalories() << std::endl;
-        std::cout << "Answer 1: " << cal.GetTopThreeTotal() << std::endl;
+        std::cout << "Answer 2: " << cal.GetTopThreeTotal() << std::endl;
     }
 
     {
         std::cout << "--- Day 02 ---" << std::endl;
         RockPaperScissors rpc;
         rpc.parseInput(day2Input);
-        std::cout << "Answer 1: " << rpc.GetTotalScore() << std::endl;
-        //std::cout << "Answer 1: " << rpc.GetTopThreeTotal() << std::endl;
+        std::cout << "Answer 1: " << rpc.GetTotalScorePart1() << std::endl;
+        std::cout << "Answer 2: " << rpc.GetTotalScorePart2() << std::endl;
     }
     
 }

@@ -39,6 +39,7 @@ C Z
 
 	RockPaperScissors rpc;
 	rpc.parseInput(s1);
-	ASSERT_EQ(rpc.GetTotalScore(), 15);
+	ASSERT_EQ(rpc.GetTotalScorePart1(), 15);
+	ASSERT_EQ(rpc.GetTotalScorePart2(), 12);
 
 }
