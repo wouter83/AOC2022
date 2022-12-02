@@ -5,6 +5,7 @@
 #include "inputs.hpp"
 #include <crtdbg.h>
 #include "../Core/Calories.h"
+#include "../Core/RockPaperScissors.h"
 
 int main()
 {    
@@ -17,6 +18,13 @@ int main()
         std::cout << "Answer 1: " << cal.GetTopThreeTotal() << std::endl;
     }
 
+    {
+        std::cout << "--- Day 02 ---" << std::endl;
+        RockPaperScissors rpc;
+        rpc.parseInput(day2Input);
+        std::cout << "Answer 1: " << rpc.GetTotalScore() << std::endl;
+        //std::cout << "Answer 1: " << rpc.GetTopThreeTotal() << std::endl;
+    }
     
 }
  
