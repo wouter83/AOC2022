@@ -7,6 +7,7 @@
 #include "../Core/Calories.h"
 #include "../Core/RockPaperScissors.h"
 #include "../Core/RuckSacks.h"
+#include "../Core/CampCleanup.h"
 
 int main()
 {    
@@ -32,6 +33,13 @@ int main()
         RuckSacks rs;
         std::cout << "Answer 1: " << rs.ParseForPriorityPerLine(day3Input) << std::endl;
         std::cout << "Answer 2: " << rs.ParseForPriorityPerGroup(day3Input) << std::endl;
+    }
+
+    {
+        std::cout << "--- Day 04 ---" << std::endl;
+        CampCleanup CC(day4Input);
+        std::cout << "Answer 1: " << CC.GetTotalFully() << std::endl;
+        std::cout << "Answer 2: " << CC.GetTotalOverlap() << std::endl;
     }
 }
  
