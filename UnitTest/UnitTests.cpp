@@ -2,6 +2,7 @@
 #include "../Generic/Generic.h"
 #include "../Core/Calories.h"
 #include "../Core/RockPaperScissors.h"
+#include "../Core/RuckSacks.h"
 
 TEST(Day1, calories)
 {
@@ -41,5 +42,28 @@ C Z
 	rpc.parseInput(s1);
 	ASSERT_EQ(rpc.GetTotalScorePart1(), 15);
 	ASSERT_EQ(rpc.GetTotalScorePart2(), 12);
+
+}
+
+TEST(Day3, RuckSackPriority)
+{
+	const std::string s1 = R"(
+vJrwpWtwJgWrhcsFMMfFFhFp
+jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL
+PmmdzqPrVvPwwTWBwg
+wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn
+ttgJtRGJQctTZtZT
+CrZsJsPPZsGzwwsLwLmpwMDw
+)";
+
+	const std::string s2 = R"(
+a
+aba
+abb
+)";
+	RuckSacks rs;
+
+	ASSERT_EQ(rs.ParseForPriorityPerLine(s1), 157);
+	ASSERT_EQ(rs.ParseForPriorityPerGroup(s1), 70);
 
 }

@@ -6,6 +6,7 @@
 #include <crtdbg.h>
 #include "../Core/Calories.h"
 #include "../Core/RockPaperScissors.h"
+#include "../Core/RuckSacks.h"
 
 int main()
 {    
@@ -26,5 +27,11 @@ int main()
         std::cout << "Answer 2: " << rpc.GetTotalScorePart2() << std::endl;
     }
     
+    {
+        std::cout << "--- Day 03 ---" << std::endl;
+        RuckSacks rs;
+        std::cout << "Answer 1: " << rs.ParseForPriorityPerLine(day3Input) << std::endl;
+        std::cout << "Answer 2: " << rs.ParseForPriorityPerGroup(day3Input) << std::endl;
+    }
 }
  

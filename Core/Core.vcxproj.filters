@@ -27,6 +27,9 @@
     <ClInclude Include="RockPaperScissors.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="RuckSacks.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core.cpp">
@@ -39,6 +42,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="RockPaperScissors.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RuckSacks.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
