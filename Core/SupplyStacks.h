@@ -16,7 +16,7 @@ class SupplyStacks
 public:
 	SupplyStacks(const std::string& input);
 	std::string GetBoxesAfterRearranging(bool singleOrder = true);
-	std::string GetBoxesAfterRearrangingBack(bool singleOrder = true);
+	std::string GetBoxesAfterRearranging(bool singleOrder = true);
 protected:
 	void insertBox(const std::string& str, int stacknr);
 	int getOffset(int stacknr);

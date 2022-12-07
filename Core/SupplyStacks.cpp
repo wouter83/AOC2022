@@ -43,48 +43,6 @@ std::string SupplyStacks::GetBoxesAfterRearranging(bool singleOrder)
 
 	for (auto move : MovesList)
 	{
-		for (int i = 0; i < move.count; ++i)
-		{
-			int offset_from = getOffset(move.from - 1); // we want the beginning
-
-			auto it_toget = stacks.begin();
-			std::advance(it_toget, offset_from);
-			char kar = *it_toget;
-			stacks.erase(it_toget);
-
-			auto it_stackSizes = stacksSizes.begin();
-			std::advance(it_stackSizes, move.from);
-			--(*it_stackSizes);
-
-			int offset_to = getOffset(move.to - 1); // we want the beginning
-			auto it_toput = stacks.begin();
-			std::advance(it_toput, offset_to);
-			stacks.insert(it_toput, kar);
-
-			it_stackSizes = stacksSizes.begin();
-			std::advance(it_stackSizes, move.to);
-			++(*it_stackSizes);
-		}
-	}
-
-	// get the top of each stack
-	// the begin of the offset is the first of the stack
-	auto it = stacks.begin();
-	for (auto it_stackSizes : stacksSizes)
-	{
-		str.push_back(*it);
-		std::advance(it, it_stackSizes);
-	}
-
-	return str;
-}
-
-std::string SupplyStacks::GetBoxesAfterRearrangingBack(bool singleOrder)
-{
-	std::string str;
-
-	for (auto move : MovesList)
-	{
 		std::string tempstr;
 		for (int i = 0; i < move.count; ++i)
 		{
@@ -98,8 +56,10 @@ std::string SupplyStacks::GetBoxesAfterRearrangingBack(bool singleOrder)
 			auto it_stackSizes = stacksSizes.begin();
 			std::advance(it_stackSizes, move.from);
 			--(*it_stackSizes);
-
-			tempstr.insert(0, 1, kar);
+			if (singleOrder)
+				tempstr.push_back(kar);
+			else
+				tempstr.insert(0, 1, kar);
 		}
 
 		for (auto a : tempstr)

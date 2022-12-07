@@ -48,7 +48,7 @@ int main()
         SupplyStacks CM9000(day5Input);
         std::cout << "Answer 1: " << CM9000.GetBoxesAfterRearranging() << std::endl;
         SupplyStacks CM9001(day5Input);
-        std::cout << "Answer 2: " << CM9001.GetBoxesAfterRearrangingBack() << std::endl;
+        std::cout << "Answer 2: " << CM9001.GetBoxesAfterRearranging() << std::endl;
     }
 }
  

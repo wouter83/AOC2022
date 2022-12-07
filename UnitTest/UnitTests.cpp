@@ -106,8 +106,8 @@ move 1 from 1 to 2
 )";
 
 	SupplyStacks CM9000(s1);
-	ASSERT_EQ(CM9000.GetBoxesAfterRearranging(), "CMZ");
+	ASSERT_EQ(CM9000.GetBoxesAfterRearranging(true), "CMZ");
+	
 	SupplyStacks CM9001(s1);
-
-	ASSERT_EQ(CM9001.GetBoxesAfterRearrangingBack(false), "MCD");
+	ASSERT_EQ(CM9001.GetBoxesAfterRearranging(false), "MCD");
 }
