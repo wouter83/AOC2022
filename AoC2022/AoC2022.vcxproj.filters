@@ -35,5 +35,8 @@
     <ClInclude Include="input\day4.h">
       <Filter>inputs</Filter>
     </ClInclude>
+    <ClInclude Include="input\day5.h">
+      <Filter>inputs</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

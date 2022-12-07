@@ -145,6 +145,7 @@
     <ClInclude Include="pch.h" />
     <ClInclude Include="RockPaperScissors.h" />
     <ClInclude Include="RuckSacks.h" />
+    <ClInclude Include="SupplyStacks.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Calories.cpp" />
@@ -158,6 +159,7 @@
     </ClCompile>
     <ClCompile Include="RockPaperScissors.cpp" />
     <ClCompile Include="RuckSacks.cpp" />
+    <ClCompile Include="SupplyStacks.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Generic\Generic.vcxproj">
