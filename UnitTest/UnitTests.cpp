@@ -5,6 +5,7 @@
 #include "../Core/RuckSacks.h"
 #include "../Core/CampCleanup.h"
 #include "../Core/SupplyStacks.h"
+#include "../Core/TuningTrouble.h"
 
 TEST(Day1, calories)
 {
@@ -110,4 +111,25 @@ move 1 from 1 to 2
 	
 	SupplyStacks CM9001(s1);
 	ASSERT_EQ(CM9001.GetBoxesAfterRearranging(false), "MCD");
+}
+
+TEST(Day6, TuningTroubleTest)
+{
+	const std::string s1 = R"(mjqjpqmgbljsphdztnvjfqwrcgsmlb)";
+	const std::string s2 = R"(bvwbjplbgvbhsrlpgdmjqwftvncz)";
+	const std::string s3 = R"(nppdvjthqldpwncqszvftbrmjlhg)";
+	const std::string s4 = R"(nznrnfrfntjfmvfwmzdfjlvtqnbhcprsg)";
+	const std::string s5 = R"(zcfzfwzzqfrljwzlrfnpqdbhtmscgvjw)";
+
+	EXPECT_EQ(TuningTrouble::StartOfPacket(s1), 7);
+	EXPECT_EQ(TuningTrouble::StartOfPacket(s2), 5);
+	EXPECT_EQ(TuningTrouble::StartOfPacket(s3), 6);
+	EXPECT_EQ(TuningTrouble::StartOfPacket(s4), 10);
+	EXPECT_EQ(TuningTrouble::StartOfPacket(s5), 11);
+
+	EXPECT_EQ(TuningTrouble::StartOfMessage(s1), 19);
+	EXPECT_EQ(TuningTrouble::StartOfMessage(s2), 23);
+	EXPECT_EQ(TuningTrouble::StartOfMessage(s3), 23);
+	EXPECT_EQ(TuningTrouble::StartOfMessage(s4), 29);
+	EXPECT_EQ(TuningTrouble::StartOfMessage(s5), 26);
 }

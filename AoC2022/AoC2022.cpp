@@ -9,6 +9,7 @@
 #include "../Core/RuckSacks.h"
 #include "../Core/CampCleanup.h"
 #include "../Core/SupplyStacks.h"
+#include "../Core/TuningTrouble.h"
 
 int main()
 {    
@@ -49,6 +50,13 @@ int main()
         std::cout << "Answer 1: " << CM9000.GetBoxesAfterRearranging() << std::endl;
         SupplyStacks CM9001(day5Input);
         std::cout << "Answer 2: " << CM9001.GetBoxesAfterRearranging() << std::endl;
+    }
+
+    {
+        std::cout << "--- Day 06 ---" << std::endl;
+
+        std::cout << "Answer 1: " << TuningTrouble::StartOfPacket(day6Input) << std::endl;
+        std::cout << "Answer 2: " << TuningTrouble::StartOfMessage(day6Input) << std::endl;
     }
 }
  

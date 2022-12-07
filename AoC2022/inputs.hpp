@@ -4,3 +4,4 @@
 #include "input/day3.h"
 #include "input/day4.h"
 #include "input/day5.h"
+#include "input/day6.h"
