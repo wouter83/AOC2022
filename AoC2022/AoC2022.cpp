@@ -1,4 +1,4 @@
- // AoC2022.cpp : This file contains the 'main' function. Program execution begins and ends there.
+// AoC2022.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 
 #include <iostream>
@@ -10,6 +10,8 @@
 #include "../Core/CampCleanup.h"
 #include "../Core/SupplyStacks.h"
 #include "../Core/TuningTrouble.h"
+#include "../Core/FileSystem.h"
+#include "../Core/TreeHouse.h"
 
 int main()
 {    
@@ -57,6 +59,20 @@ int main()
 
         std::cout << "Answer 1: " << TuningTrouble::StartOfPacket(day6Input) << std::endl;
         std::cout << "Answer 2: " << TuningTrouble::StartOfMessage(day6Input) << std::endl;
+    }
+
+    {
+        std::cout << "--- Day 07 ---" << std::endl;
+        FileSystem fs(day7Input);
+        std::cout << "Answer 1: " << fs.getTotalSizeSpecifSize(100000) << std::endl;
+        std::cout << "Answer 2: " << fs.getTotalDeleteSize(70000000, 30000000) << std::endl;
+    }
+
+    {
+        std::cout << "--- Day 08 ---" << std::endl;
+        TreeHouse treehouse(day8Input);
+        std::cout << "Answer 1: " << treehouse.GetVisibleCount() << std::endl;
+        std::cout << "Answer 2: " << treehouse.GetScenicCount() << std::endl;
     }
 }
  

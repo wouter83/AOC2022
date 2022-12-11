@@ -6,6 +6,8 @@
 #include "../Core/CampCleanup.h"
 #include "../Core/SupplyStacks.h"
 #include "../Core/TuningTrouble.h"
+#include "../Core/FileSystem.h"
+#include "../Core/TreeHouse.h"
 
 TEST(Day1, calories)
 {
@@ -132,4 +134,51 @@ TEST(Day6, TuningTroubleTest)
 	EXPECT_EQ(TuningTrouble::StartOfMessage(s3), 23);
 	EXPECT_EQ(TuningTrouble::StartOfMessage(s4), 29);
 	EXPECT_EQ(TuningTrouble::StartOfMessage(s5), 26);
+}
+
+TEST(Day6, FileSystemTest)
+{
+	const std::string s1 = R"($ cd /
+$ ls
+dir a
+14848514 b.txt
+8504156 c.dat
+dir d
+$ cd a
+$ ls
+dir e
+29116 f
+2557 g
+62596 h.lst
+$ cd e
+$ ls
+584 i
+$ cd ..
+$ cd ..
+$ cd d
+$ ls
+4060174 j
+8033020 d.log
+5626152 d.ext
+7214296 k
+)";
+
+	FileSystem fs(s1);
+	EXPECT_EQ(fs.getTotalSizeSpecifSize(100000), 95437);
+	EXPECT_EQ(fs.getTotalDeleteSize(70000000, 30000000), 24933642);
+
+}
+
+TEST(Day7, TreesTest)
+{
+	const std::string s1 = R"(30373
+25512
+65332
+33549
+35390
+)";
+
+	TreeHouse treehouse(s1);
+	EXPECT_EQ(treehouse.GetVisibleCount(), 21);
+	EXPECT_EQ(treehouse.GetScenicCount(), 8);
 }

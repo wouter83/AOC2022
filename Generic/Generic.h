@@ -36,7 +36,7 @@ public:
 		return false;
 	}
 
-	static bool hasChars(const std::string& inp, std::string& kars)
+	static bool hasChars(const std::string& inp, std::string kars)
 	{
 		bool ret = true;
 		for (auto c : kars)

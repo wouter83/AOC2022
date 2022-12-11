@@ -141,17 +141,20 @@
   <ItemGroup>
     <ClInclude Include="Calories.h" />
     <ClInclude Include="CampCleanup.h" />
+    <ClInclude Include="FileSystem.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="RockPaperScissors.h" />
     <ClInclude Include="RuckSacks.h" />
     <ClInclude Include="SupplyStacks.h" />
+    <ClInclude Include="TreeHouse.h" />
     <ClInclude Include="TuningTrouble.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Calories.cpp" />
     <ClCompile Include="CampCleanup.cpp" />
     <ClCompile Include="Core.cpp" />
+    <ClCompile Include="FileSystem.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -161,6 +164,7 @@
     <ClCompile Include="RockPaperScissors.cpp" />
     <ClCompile Include="RuckSacks.cpp" />
     <ClCompile Include="SupplyStacks.cpp" />
+    <ClCompile Include="TreeHouse.cpp" />
     <ClCompile Include="TuningTrouble.cpp" />
   </ItemGroup>
   <ItemGroup>
