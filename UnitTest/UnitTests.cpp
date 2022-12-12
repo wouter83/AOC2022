@@ -8,6 +8,7 @@
 #include "../Core/TuningTrouble.h"
 #include "../Core/FileSystem.h"
 #include "../Core/TreeHouse.h"
+#include "../Core/HillClimbingAlgorithm.h"
 
 TEST(Day1, calories)
 {
@@ -136,7 +137,7 @@ TEST(Day6, TuningTroubleTest)
 	EXPECT_EQ(TuningTrouble::StartOfMessage(s5), 26);
 }
 
-TEST(Day6, FileSystemTest)
+TEST(Day7, FileSystemTest)
 {
 	const std::string s1 = R"($ cd /
 $ ls
@@ -169,7 +170,7 @@ $ ls
 
 }
 
-TEST(Day7, TreesTest)
+TEST(Day8, TreesTest)
 {
 	const std::string s1 = R"(30373
 25512
@@ -181,4 +182,26 @@ TEST(Day7, TreesTest)
 	TreeHouse treehouse(s1);
 	EXPECT_EQ(treehouse.GetVisibleCount(), 21);
 	EXPECT_EQ(treehouse.GetScenicCount(), 8);
+}
+
+TEST(Day12, HillClimbingTest)
+{
+	const std::string s1 = R"(
+Sabqponm
+abcryxxl
+accszExk
+acctuvwj
+abdefghi
+)";
+	HillClimbingAlgorithm hill_Climb(s1);
+
+
+	const std::string s2 = R"(
+zabqponm
+abcryxxl
+SccszExk
+acctuvwj
+abdefghi
+)";
+	HillClimbingAlgorithm hill_Climb1(s2);
 }
