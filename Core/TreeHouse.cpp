@@ -51,7 +51,7 @@ int TreeHouse::GetVisibleCount()
 		ok = true;
 
 		// go left
-		for (int j = i + 1; j < (((i / lengthOfPoints) * lengthOfPoints) + lengthOfPoints) ;)
+		for (size_t j = i + 1; j < (((i / lengthOfPoints) * lengthOfPoints) + lengthOfPoints) ;)
 		{
 			if (height > Forrest[j])
 			{
@@ -73,7 +73,7 @@ int TreeHouse::GetVisibleCount()
 		ok = true;
 
 		//go down
-		for (int j = i + lengthOfPoints; j < lengthOfPoints * lengthOfPoints;)
+		for (size_t j = i + lengthOfPoints; j < lengthOfPoints * lengthOfPoints;)
 		{
 			if (height > Forrest[j])
 			{
@@ -95,7 +95,7 @@ int TreeHouse::GetVisibleCount()
 		ok = true;
 
 		// go right
-		for (int j = i - 1; j > ((i / lengthOfPoints) * lengthOfPoints) -1;)
+		for (size_t j = i - 1; j > ((i / lengthOfPoints) * lengthOfPoints) -1;)
 		{
 			if (height > Forrest[j])
 			{
@@ -147,7 +147,7 @@ int TreeHouse::GetScenicCount()
 		}
 
 		// go right
-		for (int j = i + 1; j < (((i / lengthOfPoints) * lengthOfPoints) + lengthOfPoints);)
+		for (size_t j = i + 1; j < (((i / lengthOfPoints) * lengthOfPoints) + lengthOfPoints);)
 		{
 			if (height > Forrest[j])
 			{
@@ -165,7 +165,7 @@ int TreeHouse::GetScenicCount()
 		}
 
 		//go down
-		for (int j = i + lengthOfPoints; j < lengthOfPoints * lengthOfPoints;)
+		for (size_t j = i + lengthOfPoints; j < lengthOfPoints * lengthOfPoints;)
 		{
 			if (height > Forrest[j])
 			{
@@ -182,7 +182,7 @@ int TreeHouse::GetScenicCount()
 		}
 
 		// go left
-		for (int j = i - 1; j > ((i / lengthOfPoints) * lengthOfPoints) - 1;)
+		for (size_t j = i - 1; j > ((i / lengthOfPoints) * lengthOfPoints) - 1;)
 		{
 			if (height > Forrest[j])
 			{
