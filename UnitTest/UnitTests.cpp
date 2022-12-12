@@ -8,6 +8,8 @@
 #include "../Core/TuningTrouble.h"
 #include "../Core/FileSystem.h"
 #include "../Core/TreeHouse.h"
+#include "../Core/RopeSimulator.h"
+
 
 TEST(Day1, calories)
 {
@@ -136,7 +138,7 @@ TEST(Day6, TuningTroubleTest)
 	EXPECT_EQ(TuningTrouble::StartOfMessage(s5), 26);
 }
 
-TEST(Day6, FileSystemTest)
+TEST(Day7, FileSystemTest)
 {
 	const std::string s1 = R"($ cd /
 $ ls
@@ -169,7 +171,7 @@ $ ls
 
 }
 
-TEST(Day7, TreesTest)
+TEST(Day8, TreesTest)
 {
 	const std::string s1 = R"(30373
 25512
@@ -181,4 +183,57 @@ TEST(Day7, TreesTest)
 	TreeHouse treehouse(s1);
 	EXPECT_EQ(treehouse.GetVisibleCount(), 21);
 	EXPECT_EQ(treehouse.GetScenicCount(), 8);
+}
+
+TEST(Day9, RopeBridgeTest)
+{
+	const std::string s1 = R"(
+R 4
+U 4
+L 3
+D 1
+R 4
+D 1
+L 5
+R 2
+)";
+
+/*
+*		0,0
+R 4
+		0,0
+		1,0
+		2,0
+		3,0
+U 4
+		3,0
+		4,1
+		4,2
+		4,3
+L 3
+		4,3
+		3,4
+		2,4
+D 1
+		2,4
+R 4
+		2,4
+		2,4
+		3,3
+		4,3
+D 1
+		4,3
+L 5		
+		4,3
+		4,3
+		3,2
+		2,2
+		1,2
+R 2
+		1,2
+		1,2
+*/
+	RopeSimulator sim(s1);
+	ASSERT_EQ(sim.Run(), 13);
+	//ASSERT_EQ(sim.Run(), 13);
 }
