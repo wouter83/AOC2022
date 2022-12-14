@@ -194,14 +194,6 @@ acctuvwj
 abdefghi
 )";
 	HillClimbingAlgorithm hill_Climb(s1);
-
-
-	const std::string s2 = R"(
-zabqponm
-abcryxxl
-SccszExk
-acctuvwj
-abdefghi
-)";
-	HillClimbingAlgorithm hill_Climb1(s2);
+	hill_Climb.Visualize();
+	EXPECT_EQ(hill_Climb.GetLeasStepsToEnd(), 31);
 }
