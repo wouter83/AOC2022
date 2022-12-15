@@ -194,6 +194,7 @@ acctuvwj
 abdefghi
 )";
 	HillClimbingAlgorithm hill_Climb(s1);
-	hill_Climb.Visualize();
 	EXPECT_EQ(hill_Climb.GetLeasStepsToEnd(), 31);
+	EXPECT_EQ(hill_Climb.GetLeasStepsToEndNonScenic(), 29);
+	
 }

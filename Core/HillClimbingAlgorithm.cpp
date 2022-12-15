@@ -5,17 +5,15 @@
 
 HillClimbingAlgorithm::HillClimbingAlgorithm(const std::string& input)
 {
-	size_t startX{}, startY{};
 	for (auto inp : Generic::splitString(input, "\n"))
 	{
 		std::vector<char> HillLine;
-		std::vector<Vertex*> vertexLine;
 		for (auto c : inp)
 		{
 			if (c == 'S')
 			{
-				startY = Hills.size();
-				startX = HillLine.size();
+				startCord.y = Hills.size();
+				startCord.x = HillLine.size();
 				c = 'a';
 			}
 			if (c == 'E')
@@ -24,36 +22,30 @@ HillClimbingAlgorithm::HillClimbingAlgorithm(const std::string& input)
 				stopX = HillLine.size();
 				c = 'z';
 			}
-			vertexLine.push_back(new Vertex());
+			if (c == 'a')
+			{
+				aCords.push_back(Cord(HillLine.size(), Hills.size()));
+			}
 			HillLine.push_back(c);
 
 		}
-		verticis.push_back(vertexLine);
 		Hills.push_back(HillLine);
 		maxX = HillLine.size();
 	}
 	maxY = Hills.size();
 
-	Dijkstra(startX, startY);
 }
 
 HillClimbingAlgorithm::~HillClimbingAlgorithm()
 {
-	for (auto p : verticis)
-	{
-		for (auto pp : p)
-		{
-			delete pp;
-		}
-		p.clear();
-	}
+	
 	for (auto h : Hills)
 	{
 		h.clear();
 	}
 }
 
-void HillClimbingAlgorithm::Dijkstra(size_t x, size_t y)
+void HillClimbingAlgorithm::Dijkstra(Cord cord, std::vector<std::vector<Vertex*>>& verticis)
 {
 	/*
 	A.	Geef de beginknoop voorlopig afstand 0 (dat noemen we de huidige knoop) en alle andere knopen voorlopige afstand ? (die noemen we niet-bezochte knopen).
@@ -71,6 +63,8 @@ void HillClimbingAlgorithm::Dijkstra(size_t x, size_t y)
 
 
 // A
+	size_t x = cord.x;
+	size_t y = cord.y;
 	Vertex* start = verticis[y][x];
 	start->dist = 0;
 	std::unordered_set<Vertex*> VertexEvaluated;
@@ -105,26 +99,26 @@ void HillClimbingAlgorithm::Dijkstra(size_t x, size_t y)
 			{//eval vortex above
 				size_t i = x;
 				size_t j = y - 1;
-				checkVortex(j, i, startChar, start, VertexEvaluated);
+				checkVortex(j, i, startChar, start, VertexEvaluated, verticis);
 			}
 			if (x + 1 < maxX)
 			{//eval vortex right
 				size_t i = x + 1;
 				size_t j = y;
-				checkVortex(j, i, startChar, start, VertexEvaluated);
+				checkVortex(j, i, startChar, start, VertexEvaluated, verticis);
 			}
 
 			if (y + 1 < maxY)
 			{//eval vortex under
 				size_t i = x;
 				size_t j = y + 1;
-				checkVortex(j, i, startChar, start, VertexEvaluated);
+				checkVortex(j, i, startChar, start, VertexEvaluated, verticis);
 			}
 			if (x != 0)
 			{//eval vortex left
 				size_t i = x - 1;
 				size_t j = y;
-				checkVortex(j, i, startChar, start, VertexEvaluated);
+				checkVortex(j, i, startChar, start, VertexEvaluated, verticis);
 			}
 		}
 
@@ -132,7 +126,7 @@ void HillClimbingAlgorithm::Dijkstra(size_t x, size_t y)
 	} while (VertexEvaluated.size() > 0);
 }
 
-void HillClimbingAlgorithm::checkVortex(size_t j, size_t i, char startChar, Vertex* start, std::unordered_set<Vertex*>& VertexEvaluated)
+void HillClimbingAlgorithm::checkVortex(size_t j, size_t i, char startChar, Vertex* start, std::unordered_set<Vertex*>& VertexEvaluated, std::vector<std::vector<Vertex*>>& verticis)
 {
 	Vertex* evalVortex = verticis[j][i];
 	if (!evalVortex->visited && Hills[j][i] - 1 <= startChar)
@@ -144,3 +138,57 @@ void HillClimbingAlgorithm::checkVortex(size_t j, size_t i, char startChar, Vert
 	}
 }
 
+void HillClimbingAlgorithm::makeVerticis(std::vector<std::vector<Vertex*>>& verticis)
+{
+	for (auto& h : Hills)
+	{
+		std::vector<Vertex*> vertexLine;
+		for (auto hh : h)
+		{
+			vertexLine.push_back(new Vertex());
+		}
+		verticis.push_back(vertexLine);
+	}
+}
+
+size_t HillClimbingAlgorithm::GetLeasStepsToEnd()
+{
+	std::vector<std::vector<Vertex*>> verticis;
+	makeVerticis(verticis);
+
+	Dijkstra(startCord, verticis);
+	
+	size_t ret = verticis[stopY][stopX]->dist;
+	ClearVerticis(verticis);
+
+	return ret;
+}
+
+size_t HillClimbingAlgorithm::GetLeasStepsToEndNonScenic()
+{
+	size_t ret = ULLONG_MAX;
+	for (Cord a : aCords)
+	{
+		std::vector<std::vector<Vertex*>> verticis;
+		makeVerticis(verticis);
+
+		Dijkstra(a, verticis);
+
+		size_t steps = verticis[stopY][stopX]->dist;
+		ret = std::min(steps, ret);
+		ClearVerticis(verticis);
+	}
+	return ret;
+}
+
+void HillClimbingAlgorithm::ClearVerticis(std::vector<std::vector<Vertex*>>& verticis)
+{
+	for (auto& p : verticis)
+	{
+		for (auto pp : p)
+		{
+			delete pp;
+		}
+		p.clear();
+	}
+}

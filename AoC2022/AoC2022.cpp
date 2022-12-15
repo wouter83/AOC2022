@@ -1,6 +1,7 @@
 // AoC2022.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 
+#define _CRTDBG_MAP_ALLOC
 #include <iostream>
 #include "inputs.hpp"
 #include <crtdbg.h>
@@ -80,7 +81,7 @@ int main()
         std::cout << "--- Day 12 ---" << std::endl;
         HillClimbingAlgorithm hill(day12Input);
         std::cout << "Answer 1: " << hill.GetLeasStepsToEnd() << std::endl;
-        //std::cout << "Answer 2: " << treehouse.GetScenicCount() << std::endl;
+        std::cout << "Answer 2: " << hill.GetLeasStepsToEndNonScenic() << std::endl;
     }
 }
  

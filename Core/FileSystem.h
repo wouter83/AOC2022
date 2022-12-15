@@ -42,6 +42,7 @@ class FileSystem
 {
 public:
 	FileSystem(const std::string& input);
+	~FileSystem();
 	int getTotalSize();
 	int getTotalSizeSpecifSize(int specificSize);
 	int getTotalDeleteSize(int maxDiskSize, int updateSize);
