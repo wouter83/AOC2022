@@ -155,6 +155,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="input\day9.h" />
     <ClInclude Include="input\day12.h" />
     <ClInclude Include="input\day8.h" />
     <ClInclude Include="input\day7.h" />

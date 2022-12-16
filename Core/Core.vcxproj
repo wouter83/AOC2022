@@ -146,6 +146,7 @@
     <ClInclude Include="HillClimbingAlgorithm.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="RockPaperScissors.h" />
+    <ClInclude Include="RopeSimulator.h" />
     <ClInclude Include="RuckSacks.h" />
     <ClInclude Include="SupplyStacks.h" />
     <ClInclude Include="TreeHouse.h" />
@@ -164,6 +165,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="RockPaperScissors.cpp" />
+    <ClCompile Include="RopeSimulator.cpp" />
     <ClCompile Include="RuckSacks.cpp" />
     <ClCompile Include="SupplyStacks.cpp" />
     <ClCompile Include="TreeHouse.cpp" />

@@ -13,6 +13,7 @@
 #include "../Core/TuningTrouble.h"
 #include "../Core/FileSystem.h"
 #include "../Core/TreeHouse.h"
+#include "../Core/RopeSimulator.h"
 #include "../Core/HillClimbingAlgorithm.h"
 
 int main()
@@ -75,6 +76,13 @@ int main()
         TreeHouse treehouse(day8Input);
         std::cout << "Answer 1: " << treehouse.GetVisibleCount() << std::endl;
         std::cout << "Answer 2: " << treehouse.GetScenicCount() << std::endl;
+    }
+
+    {
+        std::cout << "--- Day 09 ---" << std::endl;
+        RopeSimulator sim(day9Input);
+        std::cout << "Answer 1: " << sim.Run() << std::endl;
+        std::cout << "Answer 2: " << sim.Run(9) << std::endl;
     }
 
     {

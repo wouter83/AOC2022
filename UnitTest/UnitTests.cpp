@@ -8,7 +8,9 @@
 #include "../Core/TuningTrouble.h"
 #include "../Core/FileSystem.h"
 #include "../Core/TreeHouse.h"
+#include "../Core/RopeSimulator.h"
 #include "../Core/HillClimbingAlgorithm.h"
+
 
 TEST(Day1, calories)
 {
@@ -182,6 +184,37 @@ TEST(Day8, TreesTest)
 	TreeHouse treehouse(s1);
 	EXPECT_EQ(treehouse.GetVisibleCount(), 21);
 	EXPECT_EQ(treehouse.GetScenicCount(), 8);
+}
+
+TEST(Day9, RopeBridgeTest)
+{
+	const std::string s1 = R"(
+R 4
+U 4
+L 3
+D 1
+R 4
+D 1
+L 5
+R 2
+)";
+
+	RopeSimulator sim(s1);
+	ASSERT_EQ(sim.Run(), 13);
+
+
+	const std::string s2 = R"(
+R 5
+U 8
+L 8
+D 3
+R 17
+D 10
+L 25
+U 20
+)";
+		RopeSimulator sim1(s2);
+		ASSERT_EQ(sim1.Run(9), 36);
 }
 
 TEST(Day12, HillClimbingTest)
