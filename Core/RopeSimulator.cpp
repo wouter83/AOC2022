@@ -122,7 +122,7 @@ int RopeSimulator::Run(size_t knotCount)
 							TailPos[j].y += -1;
 
 				}
-				tail[j].insert(TailPos[j].x, TailPos[j].y);
+				tail[j].insert(cord(TailPos[j].x, TailPos[j].y));
 
 				// the new head is the old tail
 				head = TailPos[j];
