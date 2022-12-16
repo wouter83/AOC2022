@@ -10,6 +10,7 @@
 #include "../Core/TreeHouse.h"
 #include "../Core/RopeSimulator.h"
 #include "../Core/HillClimbingAlgorithm.h"
+#include "../Core/CathodeRayTube.h"
 
 
 TEST(Day1, calories)
@@ -217,6 +218,178 @@ U 20
 		ASSERT_EQ(sim1.Run(9), 36);
 }
 
+TEST(Day10, CathodeRayTubeTest)
+{
+	const std::string s1 = R"(
+addx 15
+addx -11
+addx 6
+addx -3
+addx 5
+addx -1
+addx -8
+addx 13
+addx 4
+noop
+addx -1
+addx 5
+addx -1
+addx 5
+addx -1
+addx 5
+addx -1
+addx 5
+addx -1
+addx -35
+addx 1
+addx 24
+addx -19
+addx 1
+addx 16
+addx -11
+noop
+noop
+addx 21
+addx -15
+noop
+noop
+addx -3
+addx 9
+addx 1
+addx -3
+addx 8
+addx 1
+addx 5
+noop
+noop
+noop
+noop
+noop
+addx -36
+noop
+addx 1
+addx 7
+noop
+noop
+noop
+addx 2
+addx 6
+noop
+noop
+noop
+noop
+noop
+addx 1
+noop
+noop
+addx 7
+addx 1
+noop
+addx -13
+addx 13
+addx 7
+noop
+addx 1
+addx -33
+noop
+noop
+noop
+addx 2
+noop
+noop
+noop
+addx 8
+noop
+addx -1
+addx 2
+addx 1
+noop
+addx 17
+addx -9
+addx 1
+addx 1
+addx -3
+addx 11
+noop
+noop
+addx 1
+noop
+addx 1
+noop
+noop
+addx -13
+addx -19
+addx 1
+addx 3
+addx 26
+addx -30
+addx 12
+addx -1
+addx 3
+addx 1
+noop
+noop
+noop
+addx -9
+addx 18
+addx 1
+addx 2
+noop
+noop
+addx 9
+noop
+noop
+noop
+addx -1
+addx 2
+addx -37
+addx 1
+addx 3
+noop
+addx 15
+addx -21
+addx 22
+addx -6
+addx 1
+noop
+addx 2
+addx 1
+noop
+addx -10
+noop
+noop
+addx 20
+addx 1
+addx 2
+addx 2
+addx -6
+addx -11
+noop
+noop
+noop
+)";
+	CathodeRayTube tube(s1);
+	EXPECT_EQ(tube.RunCpu(), 13140);
+	
+	const std::string s2 = R"(
+##..##..##..##..##..##..##..##..##..##..
+###...###...###...###...###...###...###.
+####....####....####....####....####....
+#####.....#####.....#####.....#####.....
+######......######......######......####
+#######.......#######.......#######.....
+)";
+	auto crt = tube.RunCRT();
+	auto str = Generic::splitString(s2,"\n");
+
+	for (int i = 0; i < crt.size(); ++i)
+	{
+		EXPECT_EQ(crt[i], str[i]);
+	}
+
+	
+}
+
 TEST(Day12, HillClimbingTest)
 {
 	const std::string s1 = R"(
@@ -226,6 +399,8 @@ accszExk
 acctuvwj
 abdefghi
 )";
+
+
 	HillClimbingAlgorithm hill_Climb(s1);
 	EXPECT_EQ(hill_Climb.GetLeasStepsToEnd(), 31);
 	EXPECT_EQ(hill_Climb.GetLeasStepsToEndNonScenic(), 29);

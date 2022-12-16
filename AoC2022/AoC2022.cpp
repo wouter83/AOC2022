@@ -15,6 +15,7 @@
 #include "../Core/TreeHouse.h"
 #include "../Core/RopeSimulator.h"
 #include "../Core/HillClimbingAlgorithm.h"
+#include "../Core/CathodeRayTube.h"
 
 int main()
 {    
@@ -83,6 +84,14 @@ int main()
         RopeSimulator sim(day9Input);
         std::cout << "Answer 1: " << sim.Run() << std::endl;
         std::cout << "Answer 2: " << sim.Run(9) << std::endl;
+    }
+
+    {
+        std::cout << "--- Day 10 ---" << std::endl;
+        CathodeRayTube tube(day10Input);
+        std::cout << "Answer 1: " << tube.RunCpu() << std::endl;
+        std::cout << "Answer 2: " << std::endl;
+        tube.RunCRT();
     }
 
     {

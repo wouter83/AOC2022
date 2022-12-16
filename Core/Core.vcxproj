@@ -141,6 +141,7 @@
   <ItemGroup>
     <ClInclude Include="Calories.h" />
     <ClInclude Include="CampCleanup.h" />
+    <ClInclude Include="CathodeRayTube.h" />
     <ClInclude Include="FileSystem.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="HillClimbingAlgorithm.h" />
@@ -155,6 +156,7 @@
   <ItemGroup>
     <ClCompile Include="Calories.cpp" />
     <ClCompile Include="CampCleanup.cpp" />
+    <ClCompile Include="CathodeRayTube.cpp" />
     <ClCompile Include="Core.cpp" />
     <ClCompile Include="FileSystem.cpp" />
     <ClCompile Include="HillClimbingAlgorithm.cpp" />
