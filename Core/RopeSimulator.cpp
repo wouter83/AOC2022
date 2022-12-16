@@ -21,6 +21,7 @@ RopeSimulator::~RopeSimulator()
 
 struct cord
 {
+	cord(){};
 	cord(int x, int y) :x(x), y(y) {};
 	int x{};
 	int y{};
@@ -40,12 +41,15 @@ namespace std {
 		}
 	};
 }
-int RopeSimulator::Run()
+int RopeSimulator::Run(size_t knotCount)
 {
 	int x{};
-	std::unordered_set<cord> tail;
-	int HeadPosX{}, HeadPosY{}, TailPosX{}, TailPosY{};
-	tail.insert(cord(0,0));
+	std::vector<std::unordered_set<cord>> tail(knotCount);
+	cord HeadPos;
+	std::vector<cord> TailPos(knotCount,cord());
+	
+	std::vector<int> TailKnots;
+	tail[0].insert(cord(0, 0));
 
 	int dir_step{};
 
@@ -56,60 +60,72 @@ int RopeSimulator::Run()
 			switch (step.directon)
 			{
 			case 'U':
-				++HeadPosY;
+				++HeadPos.y;
 				dir_step = 1;
 				break;
 			case 'D':
-				--HeadPosY;
+				--HeadPos.y;
 				dir_step = -1;
 				break;
 			case 'L':
-				--HeadPosX;
+				--HeadPos.x;
 				dir_step = -1;
 				break;
 			case 'R':
-				++HeadPosX;
+				++HeadPos.x;
 				dir_step = 1;
 				break;
 			default:
 				break;
 			}
 
+			// calculate for each knot
+			for (int j = 0; j < knotCount; ++j) 
+			{
+				cord head;
+				if (j == 0)
+				{
+					head = HeadPos;
+				}
+				if (std::abs(head.x - TailPos[j].x) > 1)
+				{
+					if (head.y != TailPos[j].y)
+					{
+						if (head.x > TailPos[j].x)
+							TailPos[j].x++;
+						else
+							TailPos[j].x--;
+						if (head.y > TailPos[j].y)
+							TailPos[j].y++;
+						else
+							TailPos[j].y--;
+					}
+					else
+						TailPos[j].x += dir_step;
+				}
+				if (std::abs(head.y - TailPos[j].y) > 1)
+				{
+					if (head.x != TailPos[j].x)
+					{
+						if (head.x > TailPos[j].x)
+							TailPos[j].x++;
+						else
+							TailPos[j].x--;
+						if (head.y > TailPos[j].y)
+							TailPos[j].y++;
+						else
+							TailPos[j].y--;
+					}
+					else
+						TailPos[j].y += dir_step;
+				}
+				
+				tail[j].insert(cord(TailPos[j].x, TailPos[j].y));
 
-			if (std::abs(HeadPosX - TailPosX) > 1)
-			{
-				if (HeadPosY != TailPosY)
-				{
-					if (HeadPosX > TailPosX)
-						TailPosX++;
-					else
-						TailPosX--;
-					if (HeadPosY > TailPosY)
-						TailPosY++;
-					else
-						TailPosY--;
-				}
-				else
-					TailPosX+=dir_step;
+				// the new head is the old tail
+				head = TailPos[j];
 			}
-			if (std::abs(HeadPosY - TailPosY) > 1)
-			{
-				if (HeadPosX != TailPosX)
-				{
-					if (HeadPosX > TailPosX)
-						TailPosX++;
-					else
-						TailPosX--;
-					if (HeadPosY > TailPosY)
-						TailPosY++;
-					else
-						TailPosY--;
-				}
-				else
-					TailPosY+=dir_step;
-			}
-			tail.insert(cord(TailPosX, TailPosY));
 		}
 	}
-	return tail.size();
+	return tail[knotCount-1].size();
 }

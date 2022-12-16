@@ -15,7 +15,7 @@ class RopeSimulator
 public:
 	RopeSimulator(const std::string& input);
 	~RopeSimulator();
-	int Run();
+	int Run(size_t knotCount = 1);
 
 private:
 	std::vector<Step> steps;

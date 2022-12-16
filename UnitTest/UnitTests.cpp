@@ -235,5 +235,5 @@ R 2
 */
 	RopeSimulator sim(s1);
 	ASSERT_EQ(sim.Run(), 13);
-	//ASSERT_EQ(sim.Run(), 13);
+	ASSERT_EQ(sim.Run(9), 36);
 }
