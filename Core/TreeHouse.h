@@ -10,7 +10,7 @@ public:
 	int GetVisibleCount();
 	int GetScenicCount();
 private:
-	int lengthOfPoints = 0;
+	size_t lengthOfPoints = 0;
 	std::vector<int> Forrest;
 
 };

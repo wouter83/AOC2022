@@ -143,6 +143,7 @@
     <ClInclude Include="CampCleanup.h" />
     <ClInclude Include="FileSystem.h" />
     <ClInclude Include="framework.h" />
+    <ClInclude Include="HillClimbingAlgorithm.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="RockPaperScissors.h" />
     <ClInclude Include="RopeSimulator.h" />
@@ -156,6 +157,7 @@
     <ClCompile Include="CampCleanup.cpp" />
     <ClCompile Include="Core.cpp" />
     <ClCompile Include="FileSystem.cpp" />
+    <ClCompile Include="HillClimbingAlgorithm.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

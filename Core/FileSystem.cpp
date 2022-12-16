@@ -17,6 +17,14 @@ int File::getSize()
 
 Directory::~Directory()
 {
+	for (auto f : Files)
+	{
+		delete f;
+	}
+	for (auto d : Dirs)
+	{
+		delete d;
+	}
 }
 
 void Directory::addDir(Directory* dir)
@@ -123,6 +131,11 @@ FileSystem::FileSystem(const std::string& input)
 		}
 	}
 
+}
+
+FileSystem::~FileSystem()
+{
+	delete root;
 }
 
 int FileSystem::getTotalSize()

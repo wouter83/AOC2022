@@ -9,6 +9,7 @@
 #include "../Core/FileSystem.h"
 #include "../Core/TreeHouse.h"
 #include "../Core/RopeSimulator.h"
+#include "../Core/HillClimbingAlgorithm.h"
 
 
 TEST(Day1, calories)
@@ -214,4 +215,19 @@ U 20
 )";
 		RopeSimulator sim1(s2);
 		ASSERT_EQ(sim1.Run(9), 36);
+}
+
+TEST(Day12, HillClimbingTest)
+{
+	const std::string s1 = R"(
+Sabqponm
+abcryxxl
+accszExk
+acctuvwj
+abdefghi
+)";
+	HillClimbingAlgorithm hill_Climb(s1);
+	EXPECT_EQ(hill_Climb.GetLeasStepsToEnd(), 31);
+	EXPECT_EQ(hill_Climb.GetLeasStepsToEndNonScenic(), 29);
+	
 }
