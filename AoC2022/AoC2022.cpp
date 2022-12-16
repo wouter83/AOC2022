@@ -80,7 +80,7 @@ int main()
         std::cout << "--- Day 09 ---" << std::endl;
         RopeSimulator sim(day9Input);
         std::cout << "Answer 1: " << sim.Run() << std::endl;
-        //std::cout << "Answer 2: " << treehouse.GetScenicCount() << std::endl;
+        std::cout << "Answer 2: " << sim.Run(9) << std::endl;
     }
 }
  

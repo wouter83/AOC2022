@@ -198,42 +198,20 @@ L 5
 R 2
 )";
 
-/*
-*		0,0
-R 4
-		0,0
-		1,0
-		2,0
-		3,0
-U 4
-		3,0
-		4,1
-		4,2
-		4,3
-L 3
-		4,3
-		3,4
-		2,4
-D 1
-		2,4
-R 4
-		2,4
-		2,4
-		3,3
-		4,3
-D 1
-		4,3
-L 5		
-		4,3
-		4,3
-		3,2
-		2,2
-		1,2
-R 2
-		1,2
-		1,2
-*/
 	RopeSimulator sim(s1);
 	ASSERT_EQ(sim.Run(), 13);
-	ASSERT_EQ(sim.Run(9), 36);
+
+
+	const std::string s2 = R"(
+R 5
+U 8
+L 8
+D 3
+R 17
+D 10
+L 25
+U 20
+)";
+		RopeSimulator sim1(s2);
+		ASSERT_EQ(sim1.Run(9), 36);
 }

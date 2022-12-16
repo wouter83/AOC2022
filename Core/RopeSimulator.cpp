@@ -51,8 +51,6 @@ int RopeSimulator::Run(size_t knotCount)
 	std::vector<int> TailKnots;
 	tail[0].insert(cord(0, 0));
 
-	int dir_step{};
-
 	for (auto step : steps)
 	{
 		for (int i = 0; i < step.count; ++i)
@@ -61,28 +59,24 @@ int RopeSimulator::Run(size_t knotCount)
 			{
 			case 'U':
 				++HeadPos.y;
-				dir_step = 1;
 				break;
 			case 'D':
 				--HeadPos.y;
-				dir_step = -1;
 				break;
 			case 'L':
 				--HeadPos.x;
-				dir_step = -1;
 				break;
 			case 'R':
 				++HeadPos.x;
-				dir_step = 1;
 				break;
 			default:
 				break;
 			}
-
+			
+			cord head;
 			// calculate for each knot
 			for (int j = 0; j < knotCount; ++j) 
 			{
-				cord head;
 				if (j == 0)
 				{
 					head = HeadPos;
@@ -101,7 +95,12 @@ int RopeSimulator::Run(size_t knotCount)
 							TailPos[j].y--;
 					}
 					else
-						TailPos[j].x += dir_step;
+					{
+						if (head.x > TailPos[j].x)
+							TailPos[j].x += 1;
+						else
+							TailPos[j].x += -1;
+					}
 				}
 				if (std::abs(head.y - TailPos[j].y) > 1)
 				{
@@ -117,10 +116,13 @@ int RopeSimulator::Run(size_t knotCount)
 							TailPos[j].y--;
 					}
 					else
-						TailPos[j].y += dir_step;
+						if (head.y > TailPos[j].y)
+							TailPos[j].y += 1;
+						else
+							TailPos[j].y += -1;
+
 				}
-				
-				tail[j].insert(cord(TailPos[j].x, TailPos[j].y));
+				tail[j].insert(TailPos[j].x, TailPos[j].y);
 
 				// the new head is the old tail
 				head = TailPos[j];
