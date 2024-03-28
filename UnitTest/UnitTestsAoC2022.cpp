@@ -1,18 +1,19 @@
 #include "pch.h"
-#include "../Generic/Generic.h"
-#include "../Core/Calories.h"
-#include "../Core/RockPaperScissors.h"
-#include "../Core/RuckSacks.h"
-#include "../Core/CampCleanup.h"
-#include "../Core/SupplyStacks.h"
-#include "../Core/TuningTrouble.h"
-#include "../Core/FileSystem.h"
-#include "../Core/TreeHouse.h"
-#include "../Core/RopeSimulator.h"
-#include "../Core/HillClimbingAlgorithm.h"
-#include "../Core/CathodeRayTube.h"
+#include <Generic.h>
+#include <Calories.h>
+#include <RockPaperScissors.h>
+#include <RuckSacks.h>
+#include <CampCleanup.h>
+#include <SupplyStacks.h>
+#include <TuningTrouble.h>
+#include <FileSystem.h>
+#include <TreeHouse.h>
+#include <RopeSimulator.h>
+#include <HillClimbingAlgorithm.h>
+#include <CathodeRayTube.h>
 
-
+namespace AoC2022
+{
 TEST(Day1, calories)
 {
 	const std::string s1 = R"(
@@ -405,4 +406,5 @@ abdefghi
 	EXPECT_EQ(hill_Climb.GetLeasStepsToEnd(), 31);
 	EXPECT_EQ(hill_Climb.GetLeasStepsToEndNonScenic(), 29);
 	
+}
 }

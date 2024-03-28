@@ -1,21 +1,20 @@
 // AoC2022.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 
-#define _CRTDBG_MAP_ALLOC
 #include <iostream>
 #include "inputs.hpp"
 #include <crtdbg.h>
-#include "../Core/Calories.h"
-#include "../Core/RockPaperScissors.h"
-#include "../Core/RuckSacks.h"
-#include "../Core/CampCleanup.h"
-#include "../Core/SupplyStacks.h"
-#include "../Core/TuningTrouble.h"
-#include "../Core/FileSystem.h"
-#include "../Core/TreeHouse.h"
-#include "../Core/RopeSimulator.h"
-#include "../Core/HillClimbingAlgorithm.h"
-#include "../Core/CathodeRayTube.h"
+#include <Calories.h>
+#include <RockPaperScissors.h>
+#include <RuckSacks.h>
+#include <CampCleanup.h>
+#include <SupplyStacks.h>
+#include <TuningTrouble.h>
+#include <FileSystem.h>
+#include <TreeHouse.h>
+#include <RopeSimulator.h>
+#include <HillClimbingAlgorithm.h>
+#include <CathodeRayTube.h>
 
 int main()
 {    
