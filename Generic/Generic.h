@@ -2,6 +2,8 @@
 #include <vector>
 #include <string>
 
+using uint = size_t;
+
 namespace Generic
 {
 	static std::vector<std::string> splitString(const std::string& str, const std::string& seperator)

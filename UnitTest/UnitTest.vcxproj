@@ -45,11 +45,15 @@
     </ClCompile>
     <ClCompile Include="UnitTestsAoC2021.cpp" />
     <ClCompile Include="UnitTestsAoC2022.cpp" />
+    <ClCompile Include="UnitTestAoC2019.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AoC2019Lib\AoC2019Lib.vcxproj">
+      <Project>{55ca62c3-beef-4321-ba1c-11fd49a17ea1}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\AoC2021Lib\AoC2021Lib.vcxproj">
       <Project>{0dd7ec7b-2b3e-43c8-a645-8bb9780fbabf}</Project>
     </ProjectReference>
@@ -89,7 +93,7 @@
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>$(SolutionDir)Generic;$(SolutionDir)AoC2021Lib;$(SolutionDir)AoC2022Lib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Generic;$(SolutionDir)AoC2021Lib;$(SolutionDir)AoC2019Lib;$(SolutionDir)AoC2022Lib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
