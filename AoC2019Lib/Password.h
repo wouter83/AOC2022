@@ -3,7 +3,7 @@
 class Password
 {
 public:
-	bool Verify(std::string& str);
+	bool Verify(const std::string& str);
 private:
 	bool boundarycheck(int number);
 };

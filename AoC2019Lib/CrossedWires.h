@@ -7,18 +7,16 @@
 #include "Point.h"
 #include "Segment.h"
 
-
+struct Command {
+	char command;
+	unsigned int count;
+};
 
 class CrossedWires
 {
-	struct Command {
-		char command;
-		unsigned int count;
-	};
-
 public:
 
-	CrossedWires() {};
+	CrossedWires() =default;
 
 	bool RunWires(int& closedCross, int& shortestCross);
 	void LoadWires(std::string& a, std::string& b);
@@ -26,7 +24,7 @@ public:
 	bool AddWire(std::vector<Command> commands, std::vector<Segment>& wire);
 
 private:
-	std::vector<Command> parse(std::string& str);
+	std::vector<Command> parse(const std::string& str);
 	bool intersection(Segment& segA, Segment& segB, Point& intersect);
 	int manhattLength(const Point& a, const Point& b);
 

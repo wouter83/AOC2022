@@ -131,6 +131,7 @@
     <ClCompile Include="AoC2019.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="inputs.hpp" />
     <ClInclude Include="input\day1.h" />
     <ClInclude Include="input\day2.h" />
   </ItemGroup>

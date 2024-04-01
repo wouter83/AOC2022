@@ -6,7 +6,7 @@ bool Password::boundarycheck(int number)
 	return number > 1 && number % 2 == 0 && number / 2 == 1;
 }
 
-bool Password::Verify(std::string& str)
+bool Password::Verify(const std::string& str)
 {
 	if (str.length() > 6) return false;
 	int prev = -1;
@@ -15,7 +15,7 @@ bool Password::Verify(std::string& str)
 	bool retCountSame = false;
 	int countSame = 1;
 
-	for (char& c : str) 
+	for (char c : str) 
 	{
 		int val = (int)c - 48;
 		if (prev != -1)

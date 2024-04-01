@@ -1,10 +1,7 @@
 #include "pch.h"
 #include "CrossedWires.h"
-
-#include<sstream>
-
-
-
+#include <sstream>
+#include <Generic.h>
 
 int CrossedWires::manhattLength(const Point& a,const Point& b)
 {
@@ -78,12 +75,11 @@ bool CrossedWires::RunWires(int& closedCross, int& shortestCross)
 	 return false;
  }
 
- std::vector<CrossedWires::Command> CrossedWires::parse(std::string& str)
+ std::vector<Command> CrossedWires::parse(const std::string& str)
  {
-	 std::vector< Command> commands;
-	 std::stringstream ss(str);
-	 std::string command;
-	 while (std::getline(ss, command, ','))
+	 std::vector<Command> commands;
+	 
+	 for (std::string& command : Generic::splitString(str, ","))
 	 {
 		 Command cmd;
 		 cmd.command = command[0];
