@@ -1,10 +1,10 @@
-// Core.cpp : Defines the functions for the static library.
+// AoC2019Lib.cpp : Defines the functions for the static library.
 //
 
 #include "pch.h"
 #include "framework.h"
 
 // TODO: This is an example of a library function
-void fnCore()
+void fnAoC2019Lib()
 {
 }

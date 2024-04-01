@@ -21,78 +21,51 @@
     <ClInclude Include="pch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Calories.h">
+    <ClInclude Include="IntProc.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="RockPaperScissors.h">
+    <ClInclude Include="CounterUpper.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="RuckSacks.h">
+    <ClInclude Include="CrossedWires.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="CampCleanup.h">
+    <ClInclude Include="MassConstant.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="SupplyStacks.h">
+    <ClInclude Include="Module.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="TuningTrouble.h">
+    <ClInclude Include="Password.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="FileSystem.h">
+    <ClInclude Include="Point.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="TreeHouse.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="RopeSimulator.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="HillClimbingAlgorithm.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CathodeRayTube.h">
+    <ClInclude Include="Segment.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Core.cpp">
+    <ClCompile Include="AoC2019Lib.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="pch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Calories.cpp">
+    <ClCompile Include="CounterUpper.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="RockPaperScissors.cpp">
+    <ClCompile Include="CrossedWires.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="RuckSacks.cpp">
+    <ClCompile Include="Module.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CampCleanup.cpp">
+    <ClCompile Include="Password.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="SupplyStacks.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="TuningTrouble.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="FileSystem.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="TreeHouse.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="RopeSimulator.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="HillClimbingAlgorithm.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CathodeRayTube.cpp">
+    <ClCompile Include="IntProc.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -2,9 +2,10 @@
 #include <vector>
 #include <string>
 
-class Generic
+using uint = size_t;
+
+namespace Generic
 {
-public:
 	static std::vector<std::string> splitString(const std::string& str, const std::string& seperator)
 	{
 		std::vector<std::string> ret;
@@ -65,4 +66,3 @@ public:
 		return std::strtol(str.c_str(), nullptr, 0);
 	}
 };
-

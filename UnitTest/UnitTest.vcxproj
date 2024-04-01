@@ -21,7 +21,7 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{b5038f2a-3f1b-4ae5-a894-26dcf2273678}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <WindowsTargetPlatformVersion>10.0.19041.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
     <ConfigurationType>Application</ConfigurationType>
     <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
@@ -36,20 +36,28 @@
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="test.cpp" />
+    <ClCompile Include="UnitTestGeneric.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="UnitTests.cpp" />
+    <ClCompile Include="UnitTestsAoC2021.cpp" />
+    <ClCompile Include="UnitTestsAoC2022.cpp" />
+    <ClCompile Include="UnitTestAoC2019.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Core\Core.vcxproj">
+    <ProjectReference Include="..\AoC2019Lib\AoC2019Lib.vcxproj">
+      <Project>{55ca62c3-beef-4321-ba1c-11fd49a17ea1}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\AoC2021Lib\AoC2021Lib.vcxproj">
+      <Project>{0dd7ec7b-2b3e-43c8-a645-8bb9780fbabf}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\AoC2022Lib\AoC2022Lib.vcxproj">
       <Project>{8788bb2b-898e-42ef-94ba-14fcd77149e0}</Project>
     </ProjectReference>
     <ProjectReference Include="..\Generic\Generic.vcxproj">
@@ -85,6 +93,7 @@
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
+      <AdditionalIncludeDirectories>$(SolutionDir)Generic;$(SolutionDir)AoC2021Lib;$(SolutionDir)AoC2019Lib;$(SolutionDir)AoC2022Lib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>

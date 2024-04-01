@@ -1,0 +1,10 @@
+#pragma once
+#include "input/day1.hpp"
+#include "input/day2.hpp"
+#include "input/day3.hpp"
+#include "input/day4.hpp"
+#include "input/day5.hpp"
+#include "input/day6.hpp"
+#include "input/day7.hpp"
+#include "input/day8.hpp"
+#include "input/day9.hpp"
