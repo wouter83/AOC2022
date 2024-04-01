@@ -5,6 +5,7 @@
 #include <IntProc.h>
 #include <CrossedWires.h>
 #include <Password.h>
+#include <OrbitMap.h>
 
 int main()
 {
@@ -92,4 +93,10 @@ int main()
             std::cout << "Answer 2: " << io.Output[io.Output.size() - 1] << std::endl;
         }
     }
+	{
+        OrbitMap map(day6Input);
+        std::cout << "--- Day 06 ---" << std::endl;
+		std::cout << "Answer 1: " << map.GetOrbit() << std::endl;
+		//std::cout << "Answer 2: " << count << std::endl;
+	}
 }

@@ -3,6 +3,7 @@
 #include <IntProc.h>
 #include <CrossedWires.h>
 #include <Password.h>
+#include <OrbitMap.h>
 
 namespace AoC2019
 {
@@ -273,6 +274,45 @@ namespace AoC2019
 		io.Input = 0;
 		proc.Run(io);
 		EXPECT_EQ(io.Output[0], 0);
+	}
+
+	TEST(day6, orbits)
+	{
+		const std::string s1 = R"(
+COM)B
+B)C
+C)D
+D)E
+E)F
+B)G
+G)H
+D)I
+E)J
+J)K
+K)L
+)";
+		OrbitMap map(s1);
+		EXPECT_EQ(map.GetOrbit(), 42);
+	}
+	TEST(day6, shortest)
+	{
+		const std::string s1 = R"(
+COM)B
+B)C
+C)D
+D)E
+E)F
+B)G
+G)H
+D)I
+E)J
+J)K
+K)L
+K)YOU
+I)SAN
+)";
+		OrbitMap map(s1);
+		EXPECT_EQ(map.GetShortest(), 42);
 	}
 }
 
