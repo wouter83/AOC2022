@@ -1,6 +1,7 @@
-# AoC2022
-My Advent of Code 2022
+# AoC
+My Advent of Code
 
-Targets for this year:
-- Testdriven development
-- Not too much c style coding
+## Currently
+- 2019
+- 2021
+- 2022
