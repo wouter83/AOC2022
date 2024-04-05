@@ -208,9 +208,10 @@ namespace AoC2019
 )";
 		IntProc proc(s1);
 		InpOutp io;
-		io.Input = 100;
+		io.Input.push_back(100);
 		proc.Run(io);
-		EXPECT_EQ(io.Input, io.Output[0]);
+
+		EXPECT_EQ(io.Input, io.Output);
 	}
 
 	TEST(Day5, IntProcessor_7)
@@ -232,9 +233,9 @@ namespace AoC2019
 )";
 		IntProc proc(s1);
 		InpOutp io;
-		io.Input = 7;
+		io.Input.push_back(7);
 		proc.Run(io);
-		EXPECT_EQ(io.Output[0], 999);
+		EXPECT_EQ(io.Output.front(), 999);
 	}
 
 	TEST(Day5, IntProcessor_9)
@@ -246,9 +247,9 @@ namespace AoC2019
 )";
 		IntProc proc(s1);
 		InpOutp io;
-		io.Input = 8;
+		io.Input.push_back(8);
 		proc.Run(io);
-		EXPECT_EQ(io.Output[0], 1000);
+		EXPECT_EQ(io.Output.front(), 1000);
 	}
 	TEST(Day5, IntProcessor_10)
 	{
@@ -259,9 +260,9 @@ namespace AoC2019
 )";
 		IntProc proc(s1);
 		InpOutp io;
-		io.Input = 9;
+		io.Input.push_back(9);
 		proc.Run(io);
-		EXPECT_EQ(io.Output[0], 1001);
+		EXPECT_EQ(io.Output.front(), 1001);
 	}
 
 	TEST(Day5, IntProcessor_11)
@@ -271,9 +272,9 @@ namespace AoC2019
 )";
 		IntProc proc(s1);
 		InpOutp io;
-		io.Input = 0;
+		io.Input.push_back(0);
 		proc.Run(io);
-		EXPECT_EQ(io.Output[0], 0);
+		EXPECT_EQ(io.Output.front(), 0);
 	}
 
 	TEST(day6, orbits)
@@ -312,7 +313,15 @@ K)YOU
 I)SAN
 )";
 		OrbitMap map(s1);
-		EXPECT_EQ(map.GetShortest(), 42);
+		EXPECT_EQ(map.GetShortest(), 4);
+	}
+
+	TEST(day7, phase_setting)
+	{
+		const std::string s1 = R"(
+3,15,3,16,1002,16,10,16,1,16,15,15,4,15,99,0,0
+)";
+
 	}
 }
 

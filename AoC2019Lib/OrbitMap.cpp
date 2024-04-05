@@ -1,6 +1,6 @@
 #include "pch.h"
 #include "OrbitMap.h"
-
+#include <algorithm>
 
 OrbitMap::OrbitMap(const std::string& str)
 {
@@ -56,20 +56,10 @@ OrbitMap::~OrbitMap()
 	}
 }
 
-uint OrbitMap::GetOrbit()
-{
-	uint count = 0;
-	for (Planet* planet : mPLanets)
-	{
-		count += planet->GetOrbits();
-	}
-	return count;
-}
-
 uint OrbitMap::GetShortest()
 {
-	Planet* pYou;
-	Planet* pSan;
+	Planet* pYou = nullptr;
+	Planet* pSan = nullptr;
 	for (Planet* planet : mPLanets)
 	{
 		if (planet->name == "YOU")
@@ -78,18 +68,47 @@ uint OrbitMap::GetShortest()
 			pSan = planet;
 	}
 
+	if (!pSan || !pYou) return 0;
 
+	std::vector<Planet*> planetsYou;
+	pYou->GetOrbits(planetsYou);
+	std::vector<Planet*> planetsSan;
+	pSan->GetOrbits(planetsSan);
 
-	return uint();
+	std::vector<Planet*> toRemove;
+
+	for (Planet* p : planetsYou)
+	{
+		if (std::find(planetsSan.begin(), planetsSan.end(), p) != planetsSan.end())
+		{
+			toRemove.push_back(p);
+		}
+	}
+	for (Planet* p : toRemove)
+	{
+		auto san = std::find(planetsSan.begin(), planetsSan.end(), p);
+		planetsSan.erase(san);
+		auto you = std::find(planetsYou.begin(), planetsYou.end(), p);
+		planetsYou.erase(you);
+	}
+	return planetsSan.size() + planetsYou.size();
 }
 
-uint Planet::GetOrbits()
+uint OrbitMap::GetOrbit()
 {
-	uint count = 0;
+	std::vector<Planet*> planets;
+	for (Planet* planet : mPLanets)
+	{
+		planet->GetOrbits(planets);
+	}
+	return planets.size();
+}
+
+void Planet::GetOrbits(std::vector<Planet*>& planets)
+{
 	if (orbit)
 	{
-		count++;
-		count += orbit->GetOrbits();
+		planets.push_back(orbit);
+		orbit->GetOrbits(planets);
 	}
-	return count;
 }

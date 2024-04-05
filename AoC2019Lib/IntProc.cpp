@@ -24,11 +24,12 @@ bool IntProc::Run(InpOutp& io)
 
 bool IntProc::Run(int noun, int verb)
 {
-	std::vector<int> output;
-	return Run(noun, verb, 0, output);
+	std::list<int> input;
+	std::list<int> output;
+	return Run(noun, verb, input, output);
 }
 
-bool IntProc::Run(int noun, int verb, int input, std::vector<int>& output)
+bool IntProc::Run(int noun, int verb, std::list<int>& input, std::list<int>& output)
 {
 	if (mMemory.size() < 4) return false;
 
@@ -70,7 +71,8 @@ bool IntProc::Run(int noun, int verb, int input, std::vector<int>& output)
 			break;
 		case IntProc::Input:
 			regO = mMemory.at(ip++);
-			mMemory.at(regO) = input;
+			mMemory.at(regO) = input.front();
+			input.pop_front();
 			break;
 		case IntProc::Output:
 			regO = mMemory.at(ip++);

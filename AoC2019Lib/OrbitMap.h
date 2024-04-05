@@ -10,7 +10,7 @@ public:
 	{
 		return name == other.name;
 	}
-	uint GetOrbits();
+	void GetOrbits(std::vector<Planet*>& planets);
 };
 
 class OrbitMap

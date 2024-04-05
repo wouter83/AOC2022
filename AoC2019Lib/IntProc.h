@@ -1,10 +1,11 @@
 #pragma once
 #include <Generic.h>
+#include <list>
 
 struct InpOutp
 {
-	int Input;
-	std::vector<int> Output;
+	std::list<int> Input;
+	std::list<int> Output;
 };
 
 class IntProc
@@ -27,7 +28,7 @@ public:
 	bool Run();
 	bool Run(InpOutp& io);
 	bool Run(int noun, int verb);
-	bool Run(int noun, int verb, int input, std::vector<int>& output);
+	bool Run(int noun, int verb, std::list<int>& input, std::list<int>& output);
 	std::vector<int>& Memory() { return mMemory; }
 	uint returnPosZero() { return mMemory.at(0); }
 private:
