@@ -4,6 +4,7 @@
 #include <CrossedWires.h>
 #include <Password.h>
 #include <OrbitMap.h>
+#include <PhaseComputer.h>
 
 namespace AoC2019
 {
@@ -320,7 +321,24 @@ I)SAN
 	{
 		const std::string s1 = R"(
 3,15,3,16,1002,16,10,16,1,16,15,15,4,15,99,0,0
+)";	
+
+		PhaseComputer pc(s1);
+		pc.sequence("4,3,2,1,0");
+		EXPECT_EQ(pc.getResult(), 43210);
+
+	}
+
+	TEST(day7, phase_setting_1)
+	{
+		const std::string s1 = R"(
+3,23,3,24,1002,24,10,24,1002,23,-1,23,
+101,5,23,23,1,24,23,23,4,23,99,0,0
 )";
+
+		PhaseComputer pc(s1);
+		pc.sequence("0,1,2,3,4");
+		EXPECT_EQ(pc.getResult(), 54321);
 
 	}
 }

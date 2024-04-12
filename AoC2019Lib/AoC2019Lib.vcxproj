@@ -149,6 +149,7 @@
     <ClInclude Include="OrbitMap.h" />
     <ClInclude Include="Password.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="PhaseComputer.h" />
     <ClInclude Include="Point.h" />
     <ClInclude Include="Segment.h" />
   </ItemGroup>
@@ -165,6 +166,12 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="PhaseComputer.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Generic\Generic.vcxproj">
+      <Project>{776b11e4-403d-4225-a8d6-8f36e9085be5}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

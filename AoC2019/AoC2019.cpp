@@ -6,6 +6,7 @@
 #include <CrossedWires.h>
 #include <Password.h>
 #include <OrbitMap.h>
+#include <PhaseComputer.h>
 
 int main()
 {
@@ -98,5 +99,12 @@ int main()
 		std::cout << "--- Day 06 ---" << std::endl;
 		std::cout << "Answer 1: " << map.GetOrbit() << std::endl;
 		std::cout << "Answer 2: " << map.GetShortest() << std::endl;
+	}
+
+	{
+		PhaseComputer pc(day7Input);
+		std::cout << "--- Day 07 ---" << std::endl;
+		//std::cout << "Answer 1: " <<  << std::endl;
+		//std::cout << "Answer 2: " << map.GetShortest() << std::endl;
 	}
 }
