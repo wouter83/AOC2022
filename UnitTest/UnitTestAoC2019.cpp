@@ -5,6 +5,7 @@
 #include <Password.h>
 #include <OrbitMap.h>
 #include <PhaseComputer.h>
+#include <SpaceImageFormat.h>
 
 namespace AoC2019
 {
@@ -212,7 +213,7 @@ namespace AoC2019
 		io.Input.push_back(100);
 		proc.Run(io);
 
-		EXPECT_EQ(io.Input, io.Output);
+		EXPECT_EQ(100, io.Output.front());
 	}
 
 	TEST(Day5, IntProcessor_7)
@@ -321,11 +322,10 @@ I)SAN
 	{
 		const std::string s1 = R"(
 3,15,3,16,1002,16,10,16,1,16,15,15,4,15,99,0,0
-)";	
+)";
 
 		PhaseComputer pc(s1);
-		pc.sequence("4,3,2,1,0");
-		EXPECT_EQ(pc.getResult(), 43210);
+		EXPECT_EQ(pc.getGreatest(), 43210);
 
 	}
 
@@ -335,11 +335,42 @@ I)SAN
 3,23,3,24,1002,24,10,24,1002,23,-1,23,
 101,5,23,23,1,24,23,23,4,23,99,0,0
 )";
-
 		PhaseComputer pc(s1);
-		pc.sequence("0,1,2,3,4");
-		EXPECT_EQ(pc.getResult(), 54321);
+		EXPECT_EQ(pc.getGreatest(), 54321);
+	}
 
+	TEST(day7, phase_setting_2)
+	{
+		const std::string s1 = R"(
+3,31,3,32,1002,32,10,32,1001,31,-2,31,1007,31,0,33,
+1002,33,7,33,1,33,31,31,1,32,31,31,4,31,99,0,0,0	
+)";
+		PhaseComputer pc(s1);
+		EXPECT_EQ(pc.getGreatest(), 65210);
+	}
+
+	TEST(day7, phase_setting_3)
+	{
+		const std::string s1 = R"(
+3,26,1001,26,-4,26,3,27,1002,27,2,27,1,27,26,
+27,4,27,1001,28,-1,28,1005,28,6,99,0,0,5
+)";
+		PhaseComputer pc(s1);
+		EXPECT_EQ(pc.getGreatestLoopback(), 139629729);
+	}
+
+	TEST(day8, layers)
+	{
+		const std::string s1 = R"(123456789012)";
+		SpaceImageFormat sif(s1, 3,2);
+		EXPECT_EQ(sif.FewestInLayer(0), 1);
+	}
+
+	TEST(day8, layers_2)
+	{
+		const std::string s1 = R"(0222112222120000)";
+		SpaceImageFormat sif(s1, 2, 2);
+		EXPECT_EQ(sif.GetImage(), "0110");
 	}
 }
 

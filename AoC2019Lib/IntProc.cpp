@@ -24,23 +24,20 @@ bool IntProc::Run(InpOutp& io)
 
 bool IntProc::Run(int noun, int verb)
 {
-	std::list<int> input;
-	std::list<int> output;
+
 	return Run(noun, verb, input, output);
 }
 
-bool IntProc::Run(int noun, int verb, std::list<int>& input, std::list<int>& output)
+bool IntProc::Run(int noun, int verb, std::list<size_t>& input, std::list<size_t>& output)
 {
 	if (mMemory.size() < 4) return false;
 
 	mMemory.at(1) = noun;
 	mMemory.at(2) = verb;
 
-	int ip = 0;
 	int regA = 0, regB = 0, regO = 0;
 	bool modeA = false, modeB = false, modeC = false;
-	bool error = false;
-	while (!error)
+	while (true)
 	{
 		modeA = modeB = modeC = false;
 		///opcode etc parser
@@ -70,8 +67,13 @@ bool IntProc::Run(int noun, int verb, std::list<int>& input, std::list<int>& out
 			mMemory.at(regO) = (modeC ? regA : mMemory.at(regA)) * (modeB ? regB : mMemory.at(regB));
 			break;
 		case IntProc::Input:
+			if (input.empty())
+			{
+				ip -= 1;
+				return false;
+			}
 			regO = mMemory.at(ip++);
-			mMemory.at(regO) = input.front();
+			mMemory.at(regO) = (int)input.front();
 			input.pop_front();
 			break;
 		case IntProc::Output:
@@ -132,4 +134,20 @@ bool IntProc::Run(int noun, int verb, std::list<int>& input, std::list<int>& out
 		}
 	}
 	return false;
+}
+
+void IntProc::AddInput(size_t val)
+{
+	input.push_back(val);
+}
+
+size_t IntProc::GetOutput()
+{
+	if(!output.empty())
+	{
+		size_t ret = output.front();
+		output.pop_front();
+		return ret;
+	}
+	return 0;
 }

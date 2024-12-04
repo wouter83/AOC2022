@@ -7,6 +7,7 @@
 #include <Password.h>
 #include <OrbitMap.h>
 #include <PhaseComputer.h>
+#include <SpaceImageFormat.h>
 
 int main()
 {
@@ -103,8 +104,21 @@ int main()
 
 	{
 		PhaseComputer pc(day7Input);
+		
+
 		std::cout << "--- Day 07 ---" << std::endl;
-		//std::cout << "Answer 1: " <<  << std::endl;
-		//std::cout << "Answer 2: " << map.GetShortest() << std::endl;
+		std::cout << "Answer 1: " << pc.getGreatest() << std::endl;
+		std::cout << "Answer 2: " << pc.getGreatestLoopback() << std::endl;
+	}
+
+	{
+		SpaceImageFormat sif(day8Input, 25,6);
+
+
+		std::cout << "--- Day 08 ---" << std::endl;
+		std::cout << "Answer 1: " << sif.FewestInLayer(0) << std::endl;
+		std::string a2 = sif.GetImage();
+		
+		std::cout << "Answer 2: " << a2 << std::endl;
 	}
 }

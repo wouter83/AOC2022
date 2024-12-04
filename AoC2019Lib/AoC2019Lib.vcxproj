@@ -113,6 +113,7 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <AdditionalIncludeDirectories>$(SolutionDir)Generic;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>
@@ -152,6 +153,7 @@
     <ClInclude Include="PhaseComputer.h" />
     <ClInclude Include="Point.h" />
     <ClInclude Include="Segment.h" />
+    <ClInclude Include="SpaceImageFormat.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CounterUpper.cpp" />
@@ -167,6 +169,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="PhaseComputer.cpp" />
+    <ClCompile Include="SpaceImageFormat.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Generic\Generic.vcxproj">

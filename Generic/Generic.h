@@ -1,6 +1,7 @@
 #pragma once
 #include <vector>
 #include <string>
+#include <algorithm>
 
 using uint = size_t;
 
@@ -64,5 +65,19 @@ namespace Generic
 	inline static int StringToInt(const std::string& str)
 	{
 		return std::strtol(str.c_str(), nullptr, 0);
+	}
+
+	static std::vector<std::vector<int>> generateAllUniquePermutations(int min, int max) {
+		std::vector<int> nums;
+		for (int i = min; i <= max; ++i) {
+			nums.push_back(i);
+		}
+
+		std::vector<std::vector<int>> result;
+		do {
+			result.push_back(nums);
+		} while (std::next_permutation(nums.begin(), nums.end()));
+
+		return result;
 	}
 };

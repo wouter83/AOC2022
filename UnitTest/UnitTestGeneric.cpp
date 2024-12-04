@@ -17,4 +17,19 @@ namespace Generic
 		EXPECT_EQ(outp[1], "twee");
 		EXPECT_EQ(outp[2], "drie");
 	}
+
+	TEST(GenericTest, generateAllUniquePermutations)
+	{
+		auto vect = Generic::generateAllUniquePermutations(1, 3);
+		// 1,2,3
+		// 1,3,2
+		// 2,1,3
+		// 2,3,1
+		// 3,1,2
+		// 3,2,1
+		std::vector<int> test1 = { 1,2,3 };
+
+		ASSERT_EQ(vect.size(), 6);
+		EXPECT_EQ(vect[0], test1);
+	}
 }

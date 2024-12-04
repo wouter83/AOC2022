@@ -4,8 +4,8 @@
 
 struct InpOutp
 {
-	std::list<int> Input;
-	std::list<int> Output;
+	std::list<size_t> Input;
+	std::list<size_t> Output;
 };
 
 class IntProc
@@ -28,10 +28,15 @@ public:
 	bool Run();
 	bool Run(InpOutp& io);
 	bool Run(int noun, int verb);
-	bool Run(int noun, int verb, std::list<int>& input, std::list<int>& output);
+	bool Run(int noun, int verb, std::list<size_t>& input, std::list<size_t>& output);
 	std::vector<int>& Memory() { return mMemory; }
 	uint returnPosZero() { return mMemory.at(0); }
+	void AddInput(size_t val);
+	size_t GetOutput();
 private:
 	std::vector<int> mMemory;
+	int ip = 0;
+	std::list<size_t> input;
+	std::list<size_t> output;
 };
 
