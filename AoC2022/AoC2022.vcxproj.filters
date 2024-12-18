@@ -56,5 +56,8 @@
     <ClInclude Include="input\day10.h">
       <Filter>inputs</Filter>
     </ClInclude>
+    <ClInclude Include="inputs.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
