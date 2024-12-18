@@ -2,6 +2,8 @@
 #include <vector>
 #include <string>
 #include <algorithm>
+#include <fstream>
+
 
 using uint = size_t;
 
@@ -79,5 +81,19 @@ namespace Generic
 		} while (std::next_permutation(nums.begin(), nums.end()));
 
 		return result;
+	}
+
+	static bool ReadFile(const std::string& filename, std::vector<std::string>& outp)
+	{
+		std::string line;
+		std::ifstream infile(filename);
+		if (!infile)
+			return false;
+		
+		while (std::getline(infile, line))
+		{
+			outp.push_back(line);
+		}
+		return true;
 	}
 };

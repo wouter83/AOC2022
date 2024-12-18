@@ -4,6 +4,10 @@
 #include <iostream>
 #include "inputs.hpp"
 #include <crtdbg.h>
+#include <Generic.h>
+
+#include <HistorianHysteria.h>
+#include <RedNosedReports.h>
 
 int main()
 {    
@@ -11,10 +15,19 @@ int main()
     {
         std::cout << "--- Day 01 ---" << std::endl;
         
-        /*Calorie_Counting cal;
-        cal.parseInput(day1Input);
-        std::cout << "Answer 1: " << cal.GetMostCalories() << std::endl;
-        std::cout << "Answer 2: " << cal.GetTopThreeTotal() << std::endl;*/
+        HistorianHysteria hh;
+        hh.ParseInput(day1Input);
+        std::cout << "Answer 1: " << hh.TotalDistance() << std::endl;
+        std::cout << "Answer 2: " << hh.SimilarityScore() << std::endl;
+    }
+    {
+        std::cout << "--- Day 02 ---" << std::endl;
+
+        RedNosedReports rnr;
+        std::vector<std::string> strvect;
+        Generic::ReadFile("input\\day2.h", strvect);
+        //std::cout << "Answer 1: " << rnr.ReturnSafeCount() << std::endl;
+        //std::cout << "Answer 2: " << hh.SimilarityScore() << std::endl;
     }
 }
  

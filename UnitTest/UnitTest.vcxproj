@@ -46,6 +46,7 @@
     <ClCompile Include="UnitTestsAoC2021.cpp" />
     <ClCompile Include="UnitTestsAoC2022.cpp" />
     <ClCompile Include="UnitTestAoC2019.cpp" />
+    <ClCompile Include="UnitTestsAoC2024.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -59,6 +60,9 @@
     </ProjectReference>
     <ProjectReference Include="..\AoC2022Lib\AoC2022Lib.vcxproj">
       <Project>{8788bb2b-898e-42ef-94ba-14fcd77149e0}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\AoC2024Lib\AoC2024Lib.vcxproj">
+      <Project>{c54f0ece-2f45-4843-9647-82912ad3f5bc}</Project>
     </ProjectReference>
     <ProjectReference Include="..\Generic\Generic.vcxproj">
       <Project>{776b11e4-403d-4225-a8d6-8f36e9085be5}</Project>
@@ -93,7 +97,7 @@
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>$(SolutionDir)Generic;$(SolutionDir)AoC2021Lib;$(SolutionDir)AoC2019Lib;$(SolutionDir)AoC2022Lib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Generic;$(SolutionDir)AoC2021Lib;$(SolutionDir)AoC2019Lib;$(SolutionDir)AoC2022Lib;$(SolutionDir)AoC2024Lib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
